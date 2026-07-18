@@ -1,0 +1,103 @@
+Aku pengen bikin database komik gitu, struktur nya gini
+
+[
+    "slug-komiknya": {
+        judul: "",
+        alternatif-judul: "",
+        thumbnail: "",
+        status: "",
+        type: ""
+        sinopsis: "",
+        genre: [],
+        tanggal-rilis: 0,
+        rating: 0,
+        chapter: 0,
+        list chapter: [
+            { 
+                nomor: 0,
+                judul-chapter: "",
+                link-chapter: [
+                    "id": [
+                       {
+                           id: 0,
+                           url-image: ""
+                       }, ....
+                    ]
+                    "en": ....
+                    ....
+                ]
+            }, ....
+        ],
+        komentar: [
+            "nama-usernya": { 
+                value: "",
+                tanggal: ""
+            }
+            
+        ]
+    },
+    "" ....
+    
+    
+    
+    
+    ini udh bener gk yah, bisa di benerin kalo masih kurang pas
+    
+    
+    
+    
+    {
+  "slug-komiknya": {
+    "title": "Solo Leveling",
+    "alternativeTitles": [
+      "Only I Level Up",
+      "나 혼자만 레벨업"
+    ],
+    "thumbnail": "https://...",
+    "status": "Completed",
+    "type": "Manhwa",
+    "synopsis": "...",
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "releaseYear": 2018,
+    "rating": 4.8,
+    "chapterCount": 200,
+
+    "chapters": [
+      {
+        "number": 1,
+        "title": "Chapter 1",
+        "releaseDate": 1712345678,
+
+        "images": {
+          "id": [
+            {
+              "page": 1,
+              "url": "https://..."
+            },
+            {
+              "page": 2,
+              "url": "https://..."
+            }
+          ],
+          "en": [
+            {
+              "page": 1,
+              "url": "https://..."
+            }
+          ]
+        }
+      }
+    ],
+
+    "comments": [
+      {
+        "user": "Hamzah",
+        "message": "Bagus banget.",
+        "createdAt": 1712345678
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+name: Automatic Comic Scraper
+
+on:
+  schedule:
+    # Berjalan otomatis setiap 6 jam sekali (Silakan sesuaikan format cron jika perlu)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Memungkinkan kamu untuk menjalankan workflow ini secara manual dari dashboard GitHub
+
+jobs:
+  scrape-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout kode dari repositori kamu
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # 2. Setup environment Node.js / Bun (Sesuaikan runtime yang kamu pakai)
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm' # Mengaktifkan caching untuk node_modules agar workflow berjalan lebih cepat
+
+    # 3. Install dependencies project
+    - name: Install Dependencies
+      run: |
+        if [ -f package-lock.json ]; then
+          npm ci
+        else
+          npm install
+        
+    # 4. Jalankan script orchestrator utama
+    - name: Run Scraper
+      run: node main.js
+
+    # 5. Commit dan Push kembali perubahan file JSON database jika ada data baru
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        
+        # Cek apakah ada perubahan pada file JSON
+        git add comics.json chapters.json
+        
+        if git diff --staged --quiet; then
+          echo "Tidak ada perubahan data komik baru ditemukan."
+        else
+          git commit -m "chore(database): auto-update comics and chapters data [skip ci]"
+          git push origin main
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
