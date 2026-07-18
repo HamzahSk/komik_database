@@ -29,6 +29,7 @@ jobs:
           npm ci
         else
           npm install
+        fi
         
     # 4. Jalankan script orchestrator utama
     - name: Run Scraper
