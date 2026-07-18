@@ -2,7 +2,7 @@ import * as cheerio from 'cheerio';
 import path from 'path';
 
 // --- CONFIGURATION ---
-let baseUrl = "https://vymanga.net"; 
+let baseUrl = "https://vymanga.com"; 
 const CORS = ""
 const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
