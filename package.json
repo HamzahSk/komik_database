@@ -1,0 +1,23 @@
+{
+  "name": "my-manga-scraper",
+  "version": "1.0.0",
+  "description": "Dynamic web scraper for comics and chapters data using Cheerio and ES Modules",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "test:vymanga": "node scrape/vymanga.js"
+  },
+  "keywords": [
+    "scraper",
+    "manga",
+    "manhwa",
+    "cheerio",
+    "esm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
